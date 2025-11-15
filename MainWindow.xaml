@@ -1,12 +1,32 @@
 ﻿<Window x:Class="GeometricFigures.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GeometricFigures"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Геометрические фигуры - Наследование в C#" 
+        Height="600" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" Text="Демонстрация наследования: Геометрические фигуры" 
+                   FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" 
+                   Margin="10" Foreground="DarkBlue"/>
+
+        <!-- Canvas для рисования фигур -->
+        <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="10">
+            <Canvas x:Name="DrawingCanvas" Background="White"/>
+        </Border>
+
+        <!-- Панель управления -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button x:Name="DrawFiguresBtn" Content="Нарисовать фигуры" 
+                    Click="DrawFiguresBtn_Click" Margin="5" Padding="10,5"/>
+            <Button x:Name="ClearCanvasBtn" Content="Очистить холст" 
+                    Click="ClearCanvasBtn_Click" Margin="5" Padding="10,5"/>
+        </StackPanel>
     </Grid>
 </Window>
+
